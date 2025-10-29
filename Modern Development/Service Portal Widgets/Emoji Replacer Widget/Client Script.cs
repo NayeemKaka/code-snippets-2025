@@ -1,16 +1,17 @@
-api.controller=function($scope,$sce) {
+api.controller=function($scope) {
   /* widget controller */
   var c = this;
 	
 	c.emojiMap ={
-		':smile:' :'😊',
-		':sad:':'😓',
-		":heart:":'❤️',
-		":thumbsup:":'👍',
+		":smile:" :"😊",
+		":sad:":"😓",
+		":heart:":"❤️",
+		":thumbsup:":"👍",
 		":laugh:":"😀",
 		":wink:":"😉",
 		":clap:":"👏",
-		":party:" :"🥳"
+		":party:" :"🥳",
+		":tada:":"🎉"
 	};
 	
 	c.replaceEmojis = function(){
@@ -20,6 +21,6 @@ api.controller=function($scope,$sce) {
 			var regex = new RegExp(key.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1"),'g');
 			text = text.replace(regex,c.emojiMap[key]);
 		}
-		c.outputText= $sce.trustAsHtml(text);
+		c.outputText = text;
 	}
 };
